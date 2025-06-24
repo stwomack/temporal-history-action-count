@@ -23,7 +23,7 @@
 3. Install as a command-line tool:
    ```bash
    uv sync
-   temporal-billable workflow_history.json
+   uv run temporal-billable workflow_history.json
    ```
 
 ## Testing

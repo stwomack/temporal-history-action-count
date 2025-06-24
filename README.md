@@ -42,10 +42,10 @@ uv sync
 
 ```bash
 # Basic usage
-temporal-billable workflow_history.json
+uv run temporal-billable workflow_history.json
 
 # With debug output
-temporal-billable workflow_history.json --debug
+uv run temporal-billable workflow_history.json --debug
 ```
 
 ### Example Output
