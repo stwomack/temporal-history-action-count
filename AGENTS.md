@@ -36,6 +36,7 @@
   ```
 - Test files should be placed in `tests/` directory
 - Use `test_*.py` naming convention for test files
+- Sample workflow histories for tests live under `tests/event_histories/`.
 
 ## Linting and Formatting
 - Format code with Black:

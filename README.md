@@ -64,7 +64,7 @@ Total storage size (estimate): 3.85 KB
 ```
 
 ```bash
-$ uv run python -m temporal_history_action_count.billable_actions local_activities.json
+$ uv run python -m temporal_history_action_count.billable_actions tests/event_histories/local_activities.json
 
 Count of distinct Billable Events (Actions):
 WorkflowExecutionStarted: 1
@@ -113,6 +113,18 @@ The tool provides:
 Supports both:
 - New format: `{"events": [...]}`
 - Old format: `[...]` (direct array of events)
+
+## Testing
+
+Sample workflow histories used for tests live in
+[`tests/event_histories`](tests/event_histories). A description of what each
+file demonstrates is available in [TESTING.md](TESTING.md).
+
+Run the full test suite with:
+
+```bash
+uv run pytest
+```
 
 ## Development
 

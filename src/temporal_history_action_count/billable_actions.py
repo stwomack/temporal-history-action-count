@@ -5,8 +5,14 @@
 import collections
 import json
 import sys
+import warnings
 from datetime import datetime
 from operator import itemgetter
+
+# Suppress module import warnings when run via -m
+warnings.filterwarnings(
+    "ignore", category=RuntimeWarning, message=".*found in sys.modules.*"
+)
 
 # Constants for billable event types
 BILLABLE_EVENT_TYPES = {

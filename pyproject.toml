@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Analyze Temporal workflow history files and count billable actions"
 readme = "README.md"
 authors = [
-    {name = "Steve Androulakis", email = "steve@example.com"}
+    {name = "Steve Androulakis", email = "steve.androulakis@temporal.io"}
 ]
 license = {text = "MIT"}
 requires-python = ">=3.8.1"
@@ -57,3 +57,7 @@ line_length = 88
 max-line-length = 88
 extend-ignore = ["E203", "W503", "F541"]
 exclude = [".venv", "build", "dist"]
+
+[tool.mypy]
+# This is a global setting, you can add others here.
+# For example: disallow_untyped_defs = true
