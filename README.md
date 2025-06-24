@@ -51,7 +51,7 @@ temporal-billable workflow_history.json --debug
 ### Example Output
 
 ```bash
-$ uv run python -m temporal_history_action_count.billable_actions signalwithstart.json
+$ uv run python -m temporal_history_action_count.billable_actions tests/event_histories/signalwithstart.json
 
 Count of distinct Billable Events (Actions):
 WorkflowExecutionStarted: 1
