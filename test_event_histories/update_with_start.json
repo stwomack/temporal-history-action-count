@@ -1,0 +1,450 @@
+{
+  "events": [
+    {
+      "eventId": "1",
+      "eventTime": "2025-06-24T03:33:28.477409556Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_EXECUTION_STARTED",
+      "version": "1529",
+      "taskId": "547418762",
+      "workflowExecutionStartedEventAttributes": {
+        "workflowType": {
+          "name": "TransactionWorkflowLocalBeforeUpdate"
+        },
+        "taskQueue": {
+          "name": "LatencyOptimizationTEST",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "json/plain"
+              },
+              "data": {
+                "sourceAccount": "checking",
+                "targetAccount": "justine_morris",
+                "amount": 5
+              }
+            }
+          ]
+        },
+        "workflowExecutionTimeout": "0s",
+        "workflowRunTimeout": "0s",
+        "workflowTaskTimeout": "10s",
+        "originalExecutionRunId": "01979fff-751d-763b-b4dd-4146108ab627",
+        "identity": "89611@Steves-MacBook-Pro.local",
+        "firstExecutionRunId": "01979fff-751d-763b-b4dd-4146108ab627",
+        "attempt": 1,
+        "firstWorkflowTaskBackoff": "0s",
+        "header": {},
+        "workflowId": "latency-transfer-brave-tips-hide-UpdateWithStartLocalActivities-iteration-1"
+      }
+    },
+    {
+      "eventId": "2",
+      "eventTime": "2025-06-24T03:33:28.477507304Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "version": "1529",
+      "taskId": "547418763",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "LatencyOptimizationTEST",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "3",
+      "eventTime": "2025-06-24T03:33:28.491956873Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "version": "1529",
+      "taskId": "547418767",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "2",
+        "identity": "89611@Steves-MacBook-Pro.local",
+        "requestId": "e7f78c82-bc16-4215-acde-004a54b744d0",
+        "historySizeBytes": "474"
+      }
+    },
+    {
+      "eventId": "4",
+      "eventTime": "2025-06-24T03:33:28.671074298Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "version": "1529",
+      "taskId": "547418772",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "2",
+        "startedEventId": "3",
+        "identity": "89611@Steves-MacBook-Pro.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "langUsedFlags": [
+            1
+          ]
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "5",
+      "eventTime": "2025-06-24T03:33:28.671158925Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_ACCEPTED",
+      "version": "1529",
+      "taskId": "547418773",
+      "workflowExecutionUpdateAcceptedEventAttributes": {
+        "protocolInstanceId": "b6f3309e-3938-42d0-add7-2f118d3bf30d",
+        "acceptedRequestMessageId": "b6f3309e-3938-42d0-add7-2f118d3bf30d/request",
+        "acceptedRequestSequencingEventId": "2",
+        "acceptedRequest": {
+          "meta": {
+            "updateId": "b6f3309e-3938-42d0-add7-2f118d3bf30d",
+            "identity": "89611@Steves-MacBook-Pro.local"
+          },
+          "input": {
+            "header": {},
+            "name": "early-return"
+          }
+        }
+      }
+    },
+    {
+      "eventId": "6",
+      "eventTime": "2025-06-24T03:33:28.671212611Z",
+      "eventType": "EVENT_TYPE_MARKER_RECORDED",
+      "version": "1529",
+      "taskId": "547418774",
+      "markerRecordedEventAttributes": {
+        "markerName": "LocalActivity",
+        "details": {
+          "activityId": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": "4e000ec5-5193-3a69-968a-3e407ab9a6a9"
+              }
+            ]
+          },
+          "input": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": {
+                  "sourceAccount": "checking",
+                  "targetAccount": "justine_morris",
+                  "amount": 5
+                }
+              }
+            ]
+          },
+          "meta": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": {
+                  "firstSkd": 1750736008503,
+                  "atpt": 1,
+                  "backoff": null
+                }
+              }
+            ]
+          },
+          "result": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": {
+                  "id": "TXID8591220897",
+                  "sourceAccount": "checking",
+                  "targetAccount": "justine_morris",
+                  "amount": 5
+                }
+              }
+            ]
+          },
+          "time": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": 1750736008509
+              }
+            ]
+          },
+          "type": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": "MintTransactionId"
+              }
+            ]
+          }
+        },
+        "workflowTaskCompletedEventId": "4"
+      }
+    },
+    {
+      "eventId": "7",
+      "eventTime": "2025-06-24T03:33:28.671227537Z",
+      "eventType": "EVENT_TYPE_MARKER_RECORDED",
+      "version": "1529",
+      "taskId": "547418775",
+      "markerRecordedEventAttributes": {
+        "markerName": "LocalActivity",
+        "details": {
+          "activityId": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": "1c5f03cb-2fc3-34bc-8b0c-38c337564b55"
+              }
+            ]
+          },
+          "input": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": {
+                  "id": "TXID8591220897",
+                  "sourceAccount": "checking",
+                  "targetAccount": "justine_morris",
+                  "amount": 5
+                }
+              }
+            ]
+          },
+          "meta": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": {
+                  "firstSkd": 1750736008532,
+                  "atpt": 1,
+                  "backoff": null
+                }
+              }
+            ]
+          },
+          "result": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": {
+                  "id": "TXID8591220897",
+                  "sourceAccount": "checking",
+                  "targetAccount": "justine_morris",
+                  "amount": 5
+                }
+              }
+            ]
+          },
+          "time": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": 1750736008521
+              }
+            ]
+          },
+          "type": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": "InitTransaction"
+              }
+            ]
+          }
+        },
+        "workflowTaskCompletedEventId": "4"
+      }
+    },
+    {
+      "eventId": "8",
+      "eventTime": "2025-06-24T03:33:28.671254745Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "version": "1529",
+      "taskId": "547418776",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "4f411ca0-8529-3bfe-b717-2b2da7a6c470",
+        "activityType": {
+          "name": "CompleteTransaction"
+        },
+        "taskQueue": {
+          "name": "LatencyOptimizationTEST",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "json/plain"
+              },
+              "data": {
+                "id": "TXID8591220897",
+                "sourceAccount": "checking",
+                "targetAccount": "justine_morris",
+                "amount": 5
+              }
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "4",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "100s"
+        }
+      }
+    },
+    {
+      "eventId": "9",
+      "eventTime": "2025-06-24T03:33:28.671364267Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_EXECUTION_UPDATE_COMPLETED",
+      "version": "1529",
+      "taskId": "547418777",
+      "workflowExecutionUpdateCompletedEventAttributes": {
+        "meta": {
+          "updateId": "b6f3309e-3938-42d0-add7-2f118d3bf30d",
+          "identity": "89611@Steves-MacBook-Pro.local"
+        },
+        "acceptedEventId": "5",
+        "outcome": {
+          "success": {
+            "payloads": [
+              {
+                "metadata": {
+                  "encoding": "json/plain"
+                },
+                "data": {
+                  "transactionId": "TXID8591220897",
+                  "status": "Initialization successful"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "eventId": "10",
+      "eventTime": "2025-06-24T03:33:28.671396562Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "version": "1529",
+      "taskId": "547418783",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "8",
+        "identity": "89611@Steves-MacBook-Pro.local",
+        "requestId": "41180889-345c-48a6-be18-dc7cbde09958",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "11",
+      "eventTime": "2025-06-24T03:33:28.831055372Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "version": "1529",
+      "taskId": "547418784",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "8",
+        "startedEventId": "10",
+        "identity": "89611@Steves-MacBook-Pro.local"
+      }
+    },
+    {
+      "eventId": "12",
+      "eventTime": "2025-06-24T03:33:28.831060689Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "version": "1529",
+      "taskId": "547418785",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "89611@Steves-MacBook-Pro.local:68bd4444-4aca-46c0-b9e1-84e355e46c50",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "LatencyOptimizationTEST"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "13",
+      "eventTime": "2025-06-24T03:33:28.838005121Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "version": "1529",
+      "taskId": "547418789",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "12",
+        "identity": "89611@Steves-MacBook-Pro.local",
+        "requestId": "93b69148-a790-4b60-9cc9-7daf8cd41741",
+        "historySizeBytes": "2842"
+      }
+    },
+    {
+      "eventId": "14",
+      "eventTime": "2025-06-24T03:33:28.881545344Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "version": "1529",
+      "taskId": "547418793",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "12",
+        "startedEventId": "13",
+        "identity": "89611@Steves-MacBook-Pro.local",
+        "workerVersion": {},
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "15",
+      "eventTime": "2025-06-24T03:33:28.881627584Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_EXECUTION_COMPLETED",
+      "version": "1529",
+      "taskId": "547418794",
+      "workflowExecutionCompletedEventAttributes": {
+        "result": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "json/plain"
+              },
+              "data": {
+                "transactionId": "TXID8591220897",
+                "status": "Transaction completed successfully."
+              }
+            }
+          ]
+        },
+        "workflowTaskCompletedEventId": "14"
+      }
+    }
+  ]
+}
