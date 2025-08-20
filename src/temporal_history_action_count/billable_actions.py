@@ -82,8 +82,27 @@ def is_local_activity_marker(event):
     }
 
 
+def get_retry_count(event):
+    """
+    Extract the retry count from an event based on the attempt field.
+    Returns the number of retries (attempt - 1).
+    """
+    # Check various event attributes for attempt field
+    for attr_name in [
+        "activityTaskStartedEventAttributes",
+        "activityTaskScheduledEventAttributes", 
+        "workflowExecutionStartedEventAttributes",
+        "workflowTaskStartedEventAttributes",
+        "timerStartedEventAttributes"
+    ]:
+        if attr_name in event:
+            attempt = event[attr_name].get("attempt", 1)
+            return max(0, attempt - 1)
+    return 0
+
+
 def process_event(
-    event, has_local_activity, local_activity_count, billable_actions, debug
+    event, has_local_activity, local_activity_count, billable_actions, debug, include_retries=False
 ):
     """
     Process an individual event to determine if it's billable.
@@ -112,9 +131,20 @@ def process_event(
                 # Other MarkerRecorded events like SideEffect/Version are not billable
                 pass
         else:
+            # Count the base action
             billable_actions.append(normalized_event_type)
             if debug:
                 print(f"\t BILLABLE")
+    
+    # Handle retries separately for ActivityTaskStarted events
+    elif include_retries and normalized_event_type == "EVENT_TYPE_ACTIVITY_TASK_STARTED":
+        retry_count = get_retry_count(event)
+        if retry_count > 0:
+            # Add retry counts as billable actions
+            for _ in range(retry_count):
+                billable_actions.append("ActivityTaskScheduled_retry")
+            if debug:
+                print(f"\t BILLABLE ({retry_count} retries for activity)")
 
     return has_local_activity, local_activity_count
 
@@ -138,7 +168,7 @@ def is_signal_with_start(events):
     )
 
 
-def parse_workflow_history(filename, debug=False):
+def parse_workflow_history(filename, debug=False, include_retries=False):
     """
     Parse the workflow history from a given filename and count billable actions.
     Supports both old and new file formats
@@ -191,7 +221,7 @@ def parse_workflow_history(filename, debug=False):
                 continue
 
         has_local_activity, local_activity_count = process_event(
-            event, has_local_activity, local_activity_count, billable_actions, debug
+            event, has_local_activity, local_activity_count, billable_actions, debug, include_retries
         )
 
     # Capture any pending local activity as billable
@@ -325,13 +355,14 @@ def main():
     CLI
     """
     if len(sys.argv) < 2:
-        print("Usage: python billable_actions.py <Temporal history filename> [--debug]")
+        print("Usage: python billable_actions.py <Temporal history filename> [--debug] [-r]")
         sys.exit(1)
 
     filename = sys.argv[1]
     debug_mode = "--debug" in sys.argv
+    include_retries = "-r" in sys.argv
     billable_actions, local_activity_count, events = parse_workflow_history(
-        filename, debug=debug_mode
+        filename, debug=debug_mode, include_retries=include_retries
     )
     display_billable_summary(billable_actions, local_activity_count)
 

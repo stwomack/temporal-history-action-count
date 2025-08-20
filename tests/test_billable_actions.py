@@ -32,6 +32,7 @@ DATA_DIR = Path(__file__).parent / "event_histories"
         ("agent.json", 17),
         ("transfer.json", 7),
         ("update_with_start.json", 4),
+        ("local_with_retries.json", 7),
     ],
 )
 def test_parse_workflow_history_counts(filename, expected_count):
