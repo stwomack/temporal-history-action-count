@@ -48,7 +48,7 @@ uv run temporal-billable workflow_history.json
 uv run temporal-billable workflow_history.json --debug
 ```
 ```bash
-# With retry account included 
+# With retry count included 
 uv run temporal-billable -r workflow_history.json
 
 # With debug output
